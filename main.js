@@ -1,4 +1,3 @@
-
 const start = document.getElementById('start');
 const modal = document.getElementById('modal');
 const mask = document.getElementById('mask');
@@ -72,7 +71,7 @@ const chooseImg = function (event){
 
 const startGame = function(){    
   
-  let flipCount = 0;
+  let count = 0;
   let firstCard = null;
   let secondCard = null;
   
@@ -121,8 +120,8 @@ const startGame = function(){
     return;
     }
     card.className = 'card open';
-    flipCount++;
-    if (flipCount % 2 === 1) {
+    count++;
+    if (count % 2 === 1) {
     firstCard = card;
     } else {
     secondCard = card;
