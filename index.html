@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>神経衰弱</title>
+  <link rel="stylesheet" href="styles.css">
+  <body>
+</head>
+  <div id="mask" ></div>
+  <section id="modal"> 
+    <div id="img-choose-wrapper">
+      <div class="img-choose">
+        <label for="file" id="file-btn">
+          写真を選ぶ！
+          <input type="file" id="file" onChange="chooseImg(event)" multiple>
+        </label>
+        <div class="thum-container">
+          <div id="thum-text"></div>
+          <div id="thum"></div>    
+        </div>
+        <div id="start" class="hidden">        
+          <input type="button" value="始める！" class="start-btn" onclick="startGame()"/>       
+        </div>
+        
+        <a href="">
+          <div id="reload" class="hidden">        
+            <input type="button" value="もう一回選ぶ" class="reload-btn">  
+          </div>          
+        </a>
+        </div>    
+    </div>
+  </section>
+  
+  <div id="main">
+
+    <div class="container">
+      <div id="score">0.00</div>
+    <div id="stage">
+      <!-- <div class="card-container">
+        <div class="card">
+          <div class="card-front">1</div>
+          <div class="card-back">?</div>
+        </div>
+      </div> -->
+    </div>
+    <a href="" id="restart" class="inactive">もう１回</a>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
