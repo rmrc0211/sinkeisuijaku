@@ -1,17 +1,29 @@
+// 写真を選んで配列に格納するまでの処理
+  // 　定数定義
 const start = document.getElementById('start');
 const modal = document.getElementById('modal');
 const mask = document.getElementById('mask');
+const fileForm = document.getElementById('file');
+const fileBtn = document.getElementById('file-btn');
+const thumText = document.getElementById('thum-text');
+const startBtn = document.getElementById('start');
+const reload = document.getElementById('reload');
+const thum = document.getElementById('thum');
 
-
+  // 配列定義
+    // ユーザーが選択した６枚を格納する配列
 let array1 = [];
+    // それらを複製した配列
 let array2 = [];
+    // シャッフル後の配列
 let array3 = [];
 
+  // スタート前のガイダンス
 window.onload = function(){
 this.alert('好きな写真で遊べる神経衰弱だよ！\n写真を６枚選んでね！');
 }
 
-
+  // 写真選択処理
 const chooseImg = function (event){    
   const p = new Promise(function(resolve) {
         for (let j=0; j<=5; j++){
@@ -46,9 +58,8 @@ const chooseImg = function (event){
   })
   
   .then(function() {
-    document.getElementById('thum-text').innerText = 'この写真でいい？';
+    thumText.innerText = 'この写真でいい？';
     for (let i = 0; i < array1.length; i++){
-        thum = document.getElementById('thum');
         let img = document.createElement('img');                    
         img.setAttribute('src', array1[i]);
         img.setAttribute('width','50px');
@@ -56,8 +67,8 @@ const chooseImg = function (event){
         thum.appendChild(img);                
     }                    
     start.classList.remove('hidden');
-    document.getElementById('file-btn').classList.add('hidden');
-    document.getElementById('reload').classList.remove('hidden');    
+    fileBtn.classList.add('hidden');
+    reload.classList.remove('hidden');    
   })
 
   .then(function(){
@@ -66,8 +77,14 @@ const chooseImg = function (event){
       mask.classList.add('hidden');
     });    
   })
-
 };
+
+fileForm.addEventListener('change',chooseImg,false);
+
+
+
+// ゲームスタート後の処理
+const stage = document.getElementById('stage');
 
 const startGame = function(){    
   
@@ -82,7 +99,7 @@ const startGame = function(){
   
   function init() {
     for (let i = 0; i < array3.length; i++) {
-    document.getElementById('stage').appendChild(createCard(i));
+    stage.appendChild(createCard(i));
     }
   }
   
@@ -157,3 +174,5 @@ const startGame = function(){
   
   init();
 };
+
+startBtn.addEventListener('click',startGame,false);
